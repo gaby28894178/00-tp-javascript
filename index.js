@@ -3,17 +3,18 @@ import inquirer from "inquirer";
 
 const BASE_URL = 'https://fakestoreapi.com/products';
 
+
 const main = async () => {
   const { opcion } = await inquirer.prompt([
     {
       type: 'list',
       name: 'opcion',
       message: '¿Qué querés hacer?',
-      choices: ['Ver Todos  productos', 'Buscar por ID','','Crear Producto ','Borrar Product ', 'Salir']
+      choices: ['-------------------','Ver Todos productos', 'Buscar por ID','__________________','Crear Producto ','Borrar Product ', 'Salir',"",""]
     }
   ]);
 
-  if (opcion === 'Ver productos') {
+  if (opcion === 'Ver Todos productos') {
     const res = await fetch(BASE_URL);
     const productos = await res.json();
     console.log(productos);
